@@ -1,12 +1,14 @@
-function countHello (num) {
+function countHello (num){
+
     let counter =1;
-    const inter = setInterval( function () {
-        console.log("Hello", counter);
+
+    const interval = setInterval( function (){
+        console.log("Hello",counter);
         counter++;
-        if (counter>num) {
-            clearInterval(inter);
+        if(counter >num){
+            clearInterval(interval);
         }
-    }, 1000);
+    },1000);
 }
 
-countHello(5);
+countHello(10);

@@ -1,7 +1,8 @@
-const set = setTimeout( function () {
-    console.log("JavaScript Rules");
-}, 4000);
 
-const timer = setInterval( function () {
-    console.log("Wygenerowano z setInterval")
-}, 10000);
+const  interval = setInterval( function ( ){
+    console.log("Generated in INTERVAL")
+}, 5000);
+
+const timer = setTimeout(function (){
+    console.log("JavaScript RULES");
+}, 4000)
