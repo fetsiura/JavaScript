@@ -1,16 +1,4 @@
 
-function multiply(arr) {
-    let res =1;
-
-    arr.forEach(ele => {
-        res*=ele;
-    })
-    return res;
-}
-
-console.log(multiply([1,2,3]));
-
-
 function mult(arr){
     const res = arr.reduce( (total, ele ) => {
         return total*=ele

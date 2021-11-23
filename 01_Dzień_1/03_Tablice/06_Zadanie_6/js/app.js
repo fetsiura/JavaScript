@@ -1,21 +1,21 @@
-function getEvenAverage2 (arr) {
-    counter =0;
-    let res =0;
+function getEvenAverage (arr) {
 
-    arr.forEach(el => {
-            if(el %2 ===0){
-                res+=el;
-                counter++;
+    if(arr.length===0){
+        return null;
+    } else {
+
+        let sum =0;
+        const  res = arr.forEach( ele => {
+            if(ele%2===0) {
+                sum+=ele;
             }
-        }
-    )
-    if (res===0){
-        return null
+        })
+
+        return sum;
     }
-    return res/counter;
 }
 
-console.log(getEvenAverage2([1,2,3,4,5,6,7]));
-console.log(getEvenAverage2([1,1,1,1]));
+console.log(getEvenAverage([1,2,3,4,5,6,7]));
+console.log(getEvenAverage([1,1,1,1]));
 
 

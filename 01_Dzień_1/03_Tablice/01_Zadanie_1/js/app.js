@@ -1,18 +1,18 @@
-function distFromAverage (arr) {
-    const sum = arr.reduce( (sum, ele) => {
-        return sum + ele;
+
+
+
+function distFromAverage(arr) {
+    const sum = arr.reduce( (total , ele ) => {
+        return total+ele;
     });
+    let  ave = Math.floor(sum/arr.length);
 
-    let avg = Math.floor(sum/arr.length);
-    console.log(avg);
-
-
-    const res = arr.map( (ele) => {
-        return Math.abs(ele-avg);
+    const  res = arr.map( ele => {
+        return Math.abs(ele - ave);
     });
 
     return res;
-};
+
+}
 
 console.log(distFromAverage([1,2,3,4,5,6,7]));
-

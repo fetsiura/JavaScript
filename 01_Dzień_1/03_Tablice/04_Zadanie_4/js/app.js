@@ -1,5 +1,10 @@
-function printTable (arr){
-    arr.forEach(ele => console.log(ele));
+
+function multiply(array) {
+
+    const res =array.reduce( (total,ele) => {
+        return total*=ele;
+    })
+    return res;
 }
 
-printTable([1,2,3]);
+console.log(multiply([1,2,3,4,5]))
