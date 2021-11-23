@@ -6,7 +6,6 @@ function print2DArray (arr) {
     }
 };
 
-
 function print2DArray2 (arr) {
     arr.forEach( ele => {
         ele.forEach( sec => {
@@ -16,11 +15,13 @@ function print2DArray2 (arr) {
 };
 
 
+
 print2DArray([
     [1,2],
     [3,3],
     [5,7]
 ]);
+
 print2DArray2([
     [1,2],
     [3,3],

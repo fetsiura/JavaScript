@@ -1,6 +1,5 @@
 
 
-
 const spoon = {
     isExist: true
 }

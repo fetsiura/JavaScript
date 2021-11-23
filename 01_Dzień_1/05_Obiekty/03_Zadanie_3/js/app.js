@@ -1,4 +1,5 @@
 const Book = {
+
     title: "Some",
     author: "Rowling",
     numberOfPages: 200
@@ -10,3 +11,6 @@ Object.entries(Book).forEach(ele => {
 
     console.log(key +" - "+ val);
 })
+
+
+
