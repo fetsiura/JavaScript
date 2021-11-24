@@ -1,33 +1,29 @@
-const car = {
-    brand: "Mercedes",
-    color: "silver",
-    numberOfKilometers: 0,
+
+
+const car ={
+    brand : "Mercedes",
+    color : "white",
+    numberOfKilometers : 0,
+
+    printCarInfo: function (){
+        console.log(this.brand +", "+this.color+ ", "+this.numberOfKilometers)
+    },
+    drive : function (km){
+        this.numberOfKilometers+=km;
+    },
     control: [],
-    printCarInfo: function () {
-        console.log(`Marka ${this.brand}, color ${this.color}, 
-        przebieg ${this.numberOfKilometers}, Kontrole wykonane ${car.control}`)
+    addControlDate : function (date){
+        this.control.push(date)
     },
-    drive: function (km) {
-        this.numberOfKilometers += +km;
-    },
-    addControlDate: function (date) {
-        this.control.push(date);
-    },
-    printAllControl: function () {
-        this.control.forEach(ele => {
-            console.log(`Serwisy wykonane w ${ele}`)
+    printAllControls: function (){
+        this.control.forEach( ele => {
+                        console.log(`Serwisy wykonane w ${ele}`)
         })
     }
 }
 
 car.printCarInfo();
-
-car.drive("10");
-car.drive(20);
-car.printCarInfo();
-
-car.addControlDate("2020-01-01");
-car.printCarInfo();
-car.addControlDate("2019-01-01");
-car.printCarInfo();
-car.printAllControl();
+car.drive(10)
+car.printCarInfo()
+car.addControlDate("2021-11-23")
+car.printAllControls()

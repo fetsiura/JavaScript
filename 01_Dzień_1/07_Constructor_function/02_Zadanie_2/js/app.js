@@ -3,6 +3,7 @@ const Robot = function (name) {
   this.isFunctional = false;
 };
 
+
 Robot.prototype.sayHi = function (toWho) {
   if (this.isFunctional === true) {
     console.log("Robot " + this.name + " greets " + toWho);
@@ -11,10 +12,12 @@ Robot.prototype.sayHi = function (toWho) {
   }
 };
 
+
 Robot.prototype.changeName = function (newname) {
   console.log("Robot " + this.name + " changes name to " + newname);
   this.name = newname;
 };
+
 
 Robot.prototype.fixIt = function () {
   this.isFunctional = true;

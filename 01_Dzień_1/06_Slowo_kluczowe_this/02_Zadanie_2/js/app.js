@@ -1,3 +1,4 @@
+
 const calculator = {
   save: function (newA, newB) {
     this.a = newA;

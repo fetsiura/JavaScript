@@ -6,9 +6,8 @@ const recipe = {
 
 recipe.ingredients = ["1","2","3"];
 
-
-console.log(recipe.servings)
 console.log(recipe.title)
+console.log(recipe.servings)
 recipe.ingredients.forEach(ele => {
     console.log(ele)
 })
