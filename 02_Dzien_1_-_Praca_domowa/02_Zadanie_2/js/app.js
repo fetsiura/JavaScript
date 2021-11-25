@@ -1,11 +1,20 @@
-function addTheSameNumbers (num, arr) {
-    let res=null;
-    arr.forEach(el => {
-        if (el===num) {
-            res+=el;
+
+
+function addTheSameNumbers(num,arr){
+    let sum =0;
+    let flag = false;
+    arr.forEach( ele => {
+        if(ele === num){
+            sum+=ele;
+            flag = true;
         }
     })
-    return res;
+
+    if(!flag){
+        return null
+    }
+
+    return sum;
 }
 
 console.log(addTheSameNumbers(7,[4,7,24,7,0,10]));
