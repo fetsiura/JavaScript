@@ -1,21 +1,27 @@
-const inputNumber = document.querySelector('#orderId');
-const inputName = document.querySelector('#item');
-const inputQuantity = document.querySelector('#quantity');
 
-const submit = document.querySelector('#add');
-const tbody = document.querySelector('tbody');
 
-submit.addEventListener('click', function (){
-    const tr = document.createElement('tr');
+const btn = document.querySelector('#add')
+const number = document.querySelector('#orderId')
+const item = document.querySelector('#item')
+const quantity = document.querySelector('#quantity')
+const body = document.querySelector('tbody')
 
-    function createTd (input){
-        const td = document.createElement('td');
-        td.innerText = input.value;
+
+btn.addEventListener( 'click', function (){
+    const tr = document.createElement('tr')
+
+
+    function creatSome (inputValue){
+        const td = document.createElement('td')
+        td.innerText = inputValue.value
         tr.appendChild(td)
     }
-    createTd(inputNumber)
-    createTd(inputName)
-    createTd(inputQuantity)
-    tbody.appendChild(tr)
+
+    creatSome(number)
+    creatSome(item)
+    creatSome(quantity)
+
+    body.appendChild(tr)
 
 })
+

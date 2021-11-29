@@ -1,8 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const but = document.querySelector('.btn');
 
-    but.addEventListener('click', function (eve){
-        console.log('Hura! Działa!')
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+const btn = document.querySelector('.btn')
+
+    btn.addEventListener("click", function (){
+        console.log("Hura!Działa!")
     })
 
 
