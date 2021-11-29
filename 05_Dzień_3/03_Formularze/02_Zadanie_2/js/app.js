@@ -1,12 +1,18 @@
-const div =document.querySelector('#invoiceData')
-const checkForm= document.querySelector('form').querySelector('#invoice');
-div.classList.add('d-none')
 
-checkForm.addEventListener('change', function (e){
-    e.preventDefault();
-    if (checkForm.checked) {
-        div.classList.remove('d-none')
-    } else {
-        div.classList.add('d-none')
+
+const faktura = document.querySelector('#invoiceData')
+faktura.classList.add('d-none')
+
+const invoiceCheck = document.querySelector('#invoice')
+
+
+invoiceCheck.addEventListener('change',function (e){
+    e.preventDefault()
+    if(invoiceCheck.checked) {
+        faktura.classList.remove('d-none')
+    }
+    if(!invoiceCheck.checked){
+        faktura.classList.add('d-none')
     }
 })
+

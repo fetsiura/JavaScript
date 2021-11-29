@@ -1,25 +1,31 @@
-const form = document.querySelector('form');
-const button = document.querySelector('.btn')
-const tbody = document.querySelector('tbody');
 
-const firstTeamName = form.querySelector('#team1')
-const secondTeamName = form.querySelector('#team2')
+const  form = document.querySelector('form')
+const team1 = document.querySelector('#team1')
+const points1 = document.querySelector('#points1')
 
-const firstTeamPoints = form.querySelector('#points1')
-const secondTeamPoints = form.querySelector('#points2')
+const team2 = document.querySelector('#team2')
+const points2 = document.querySelector('#points2')
 
-button.addEventListener('click', function (e){
-    e.preventDefault();
-    const tr = document.createElement('tr');
+const tbody = document.querySelector('tbody')
 
-        if (firstTeamName.value!==secondTeamName.value && firstTeamPoints.value>=0 && secondTeamPoints.value>=0){
-            const toClone = tbody.children[1].cloneNode(true);
-            toClone.children[0].innerText = firstTeamName.value;
-            toClone.children[1].innerText = secondTeamName.value;
-            toClone.children[2].innerText = firstTeamPoints.value + " - " + secondTeamPoints.value;
-            tbody.appendChild(toClone)
-        } else {
-            console.log('wrong')
-        }
 
+form.addEventListener('submit', function (e){
+    e.preventDefault()
+
+    if( team1.value !== team2.value && points1.value>=0 && points2.value>=0 && team1.value.length && team2.value.length){
+        const tr = document.createElement('tr')
+
+        const tdName1 =document.createElement('td')
+        tdName1.innerText=team1.value
+        const tdName2 =document.createElement('td')
+        tdName2.innerText=team2.value
+        const tdRes =document.createElement('td')
+        tdRes.innerText=points1.value+" - "+points2.value
+
+        tr.appendChild(tdName1)
+        tr.appendChild(tdName2)
+        tr.appendChild(tdRes)
+        tbody.appendChild(tr)
+
+    }
 })
