@@ -1,84 +1,88 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
+    const generalPrice = document.querySelector('.order-info')
     const form = document.querySelector('form')
-    const additionsPrice = document.querySelector('#price')
-    const placeToAddition =document.querySelector('.card-title')
-    const buttonBuying= document.querySelector('#submit')
-    const buttonClearAll= document.querySelector('#clearAllAddition')
-    const buttonCheckAll=document.querySelector('#allAddition')
-    const placeToMainPrice=document.querySelector('.order-info')
+    const allAddBtn = document.querySelector('#allAddition')
+    const clearAllAddBtn = document.querySelector('#clearAllAddition')
+    const submitBtn =document.querySelector('#submit')
+
+    const addPrice = document.querySelector('#price')
+    const addPosition = document.querySelector('.card-title')
     const input = document.querySelectorAll('.form-check-input')
 
+    let mainPriceSum = 0.0;
+    let addPriceSum =0.0;
 
-    let priceAdd=0.0;
-    let priceMain=35.0;
 
+    form.addEventListener('change', addAdditions)
+    allAddBtn.addEventListener('click', addAllAdditions)
+    clearAllAddBtn.addEventListener('click', removeAllAdditions)
+    submitBtn.addEventListener('click',showKlientCheck)
 
-    form.addEventListener('change', changeAddition)
-    buttonBuying.addEventListener('click', buy)
-    buttonClearAll.addEventListener('click', clearAll)
-    buttonCheckAll.addEventListener('click', checkAll)
-
-    function checkAll(e){
+    function showKlientCheck(e){
         e.preventDefault()
-        placeToAddition.textContent=''
-        additionsPrice.innerText='0.00 zł'
-        priceAdd=0.0
-        input.forEach(ele =>{
-            ele.checked='v'
-            createAdditionList(ele.id)
-            priceAdd+=parseFloat(ele.dataset.price)
+        generalPrice.innerText="Do zapłaty: "+(addPriceSum+35)+'zł'
+
+    }
+
+    function removeAllAdditions(e){
+        e.preventDefault()
+        input.forEach( ele => {
+            ele.checked =''
         })
-        additionsPrice.innerText=priceAdd.toPrecision(3)+' zł'
+        addPriceSum=0.0
+        removeAdditionalList()
+        addPrice.innerText='0.00zł'
     }
 
-    function clearAll(e){
+    function addAllAdditions(e){
         e.preventDefault()
-        input.forEach(ele =>{
-            ele.checked=''
+        addPriceSum=0.0
+        removeAdditionalList()
+        input.forEach( ele => {
+            ele.checked ='v'
+            addPriceSum+=parseFloat(ele.dataset.price)
+            addElementToAdditionalList(ele.id)
         })
-        placeToAddition.textContent=''
-        additionsPrice.innerText='0.00 zł'
-        priceAdd=0.0
+        addPrice.innerText = addPriceSum.toPrecision(3)+' zł'
+
     }
 
-    function buy(e){
+    function addAdditions(e){
         e.preventDefault()
-        placeToMainPrice.textContent=''
-        const h5 = document.createElement('h5')
-        h5.innerText='Do zapłaty: '+(priceMain+priceAdd).toPrecision(3)+' zł'
-        //// style
-        placeToMainPrice.appendChild(h5)
-    }
-
-
-    function changeAddition (e) {
-        if (e.target.checked){
-            priceAdd+=parseFloat(e.target.dataset.price)
-            createAdditionList(e.target.id)
-            console.log(e.target.id)
+        if(e.target.checked){
+            addPriceSum+= parseFloat(e.target.dataset.price)
+            addElementToAdditionalList(e.target.id)
         } else {
-            priceAdd-=parseFloat(e.target.dataset.price)
-            deleteAdditionList(e.target.id)
+            addPriceSum-= parseFloat(e.target.dataset.price)
+            removeElementFromAdditionalList(e.target.id)
         }
-        additionsPrice.innerText=priceAdd.toPrecision(3)+' zł'
 
+        addPrice.innerText = addPriceSum.toPrecision(3)+' zł'
     }
 
 
-    function createAdditionList (name){
+    function addElementToAdditionalList (id) {
         const li = document.createElement('li')
-        li.innerText=name
-        placeToAddition.appendChild(li)
+        li.innerText = id
+        li.classList.add('additionals')
+        addPosition.appendChild(li)
+
     }
 
-    function deleteAdditionList (name){
-        const findLi = document.querySelectorAll('li');
-        findLi.forEach(function (element) {
-            if (element.innerText === name) {
-                element.remove()
+    function removeElementFromAdditionalList(id){
+        addPosition.querySelectorAll('li').forEach( ele => {
+            if(ele.innerText === id){
+                addPosition.removeChild(ele)
             }
         })
     }
 
+    function removeAdditionalList(){
+        addPosition.querySelectorAll('li').forEach(ele => {
+            ele.parentElement.removeChild(ele)
+        })
+    }
 
 });
