@@ -1,30 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const li = [...document.querySelector('ul').children]
-    console.log(li)
+    const elements = [...document.querySelector('ul').children]
 
-    li.forEach(ele => {
+
+    elements.forEach( ele => {
         ele.addEventListener('mouseover', function (e){
-            e.preventDefault()
-            const ul=ele.querySelectorAll('ul')
-            if (ul.length){
-                ul.forEach( e=>{
-                    e.style.display='block'
-                    }
-                )
-            }
-        })
-        ele.addEventListener('mouseout', function (e){
-            e.preventDefault()
-            const ul=ele.querySelectorAll('ul')
-            if (ul.length){
-                ul.forEach( e=>{
-                        e.style.display='none'
-                    }
-                )
-            }
-        })
+            const ul = ele.querySelectorAll('ul')
+            if(ul.length){
+                ul.forEach(elem=>{
+                    elem.style.display='block'
+                })
+                console.log('pokaż')
 
+            }
+
+        })
+    })
+
+    elements.forEach( ele => {
+        ele.addEventListener('mouseout', function (e){
+
+            const ul = ele.querySelectorAll('ul')
+            if(ul.length){
+                ul.forEach(elem=>{
+                    elem.style.display='none'
+
+                })
+                console.log('schowaj')
+
+            }
+        })
     })
 
 })

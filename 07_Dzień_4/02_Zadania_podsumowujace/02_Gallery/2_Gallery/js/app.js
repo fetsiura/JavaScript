@@ -6,27 +6,31 @@
  */
 const ul =document.querySelector('ul')
 ul.classList.add('gallery')
-const li = document.querySelectorAll('li')
+const li = document.querySelectorAll('img')
 const body = document.querySelector('body')
 
-li.forEach(ele => {
+
+li.forEach( ele => {
     ele.addEventListener('click', function (e){
-        let adres = ele.firstElementChild.getAttribute('src')
         const div = document.createElement('div')
-        body.appendChild(div)
         div.classList.add('fullScreen')
+        body.appendChild(div)
         const img = document.createElement('img')
+        img.setAttribute('src',this.src)
         div.appendChild(img)
-        img.setAttribute('src', adres)
+
 
         const button = document.createElement('button')
         div.appendChild(button)
         button.classList.add('close')
         button.innerText = 'close'
 
-        button.addEventListener('click', function (elem){
+
+        button.addEventListener('click', function (e){
             body.removeChild(div)
         })
-
     })
 })
+
+
+
