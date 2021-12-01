@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+
     const form = document.querySelector("form");
     const book = document.querySelector('.book-info')
 
@@ -23,13 +24,14 @@ document.addEventListener("DOMContentLoaded", function () {
 //     section.appendChild(h2);
 // }
 
+
     form.addEventListener('submit', (ele) => {
         ele.preventDefault()
         fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:'+ele.target.isbn.value)
-            .then(response => response.json())
-            .then(re => {
+            .then(resp => resp.json())
+            .then( re => {
                 const h2 = document.createElement('h2')
-                h2.innerText= re.items[0].volumeInfo.title
+                h2.innerText = re.items[0].volumeInfo.title
                 book.appendChild(h2)
             })
 
